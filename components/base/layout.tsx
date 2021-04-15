@@ -49,12 +49,16 @@ export default function Layout({ children, home, identity }: any) {
   const classes = useStyles();
   const sections = [
     {
+      title: 'Home',
+      href: '/'
+    },
+    {
       title: 'About',
       href: '/about'
     },
     {
       title: 'Blog',
-      href: 'https://www.google.com'
+      href: '/blog'
     },
     {
       title: 'Sandbox',
@@ -64,6 +68,7 @@ export default function Layout({ children, home, identity }: any) {
   return (
     <div className={classes.overallContainer}>
       <Head>
+        <title>{siteTitle}</title>
         <link rel="icon" href="../website/favicon.ico" />
         <meta
           name="description"

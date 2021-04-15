@@ -4,35 +4,43 @@ import Image from 'next/image';
 import Layout from '../components/base/layout';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { getMarkdown } from "../lib/markdown";
 
 const useStyles = makeStyles((theme) => ({
     borderCircle: {
-      borderRadius: '80%'
+        borderRadius: '80%'
     }
-  }));
+}));
 
-export default function AboutPage({}: any) {
+export async function getStaticProps() {
+    const aboutData = await getMarkdown('about');
+    return {
+        props: {
+            aboutData
+        }
+    };
+}
+
+export default function AboutPage({ aboutData }: any) {
     const classes = useStyles();
     return (
-      <Layout identity={{title: 'About'}}>
-        <Head>
-          <title>About me</title>
-        </Head>
-        <Grid container spacing={1} direction="row" justify="center" alignItems="center" wrap="nowrap" >
-            <Grid container item justify="center" alignItems="center">
-            <Image
-              priority
-              src="../website/images/dog.jpeg"
-              className={classes.borderCircle}
-              height={144}
-              width={144}
-            />
+        <Layout identity={{ title: 'About' }}>
+            <Grid container spacing={1} direction="row" justify="center" alignItems="center" wrap="nowrap">
+                <Grid container item>
+                    <article>
+                        <div dangerouslySetInnerHTML={{ __html: aboutData.contentHtml }} />
+                    </article>
+                </Grid>
+                <Grid container item justify="center" alignItems="center">
+                    <Image
+                        priority
+                        src="../website/images/dog.jpeg"
+                        className={classes.borderCircle}
+                        height={355}
+                        width={355}
+                    />
+                </Grid>
             </Grid>
-            <Grid container item>
-                <p>hey</p>
-            </Grid>
-        </Grid>
-      </Layout>
+        </Layout>
     )
-  }
-  
+}
