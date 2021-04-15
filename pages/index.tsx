@@ -8,12 +8,11 @@ import React from 'react';
 
 export default function Home({ allPostsData }: any) {
   return (
-    <Layout home>
+    <Layout home identity={{title: 'Welcome'}}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }: any) => (
             <li className={utilStyles.listItem} key={id}>
