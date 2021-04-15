@@ -1,9 +1,8 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/base/layout'
-import { getSortedPostsData } from '../lib/posts'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
-import Date from '../components/date'
+import Head from 'next/head';
+import Layout, { siteTitle } from '../components/base/layout';
+import { getSortedPostsData } from '../lib/posts';
+import Link from 'next/link';
+import Date from '../components/date';
 import React from 'react';
 
 export default function BlogPage({ allPostsData }: any) {
@@ -12,15 +11,15 @@ export default function BlogPage({ allPostsData }: any) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <ul className={utilStyles.list}>
+      <section>
+        <ul>
           {allPostsData.map(({ id, date, title }: any) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li key={id}>
             <Link href={`/posts/${id}`}>
               <a>{title}</a>
             </Link>
             <br />
-            <small className={utilStyles.lightText}>
+            <small>
               <Date dateString={date} />
             </small>
           </li>
