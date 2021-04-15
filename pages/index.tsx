@@ -4,7 +4,6 @@ import { getSortedPostsData } from '../lib/posts'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import Date from '../components/date'
-import { getLink } from '../lib/gh-manager'
 
 export default function Home({ allPostsData }: any) {
   return (
@@ -24,7 +23,7 @@ export default function Home({ allPostsData }: any) {
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }: any) => (
             <li className={utilStyles.listItem} key={id}>
-            <Link href={getLink(`posts/${id}`)}>
+            <Link href={`/posts/${id}`}>
               <a>{title}</a>
             </Link>
             <br />

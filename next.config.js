@@ -6,5 +6,6 @@ module.exports = {
     loader: "imgix",
     path: "",
   },
+  basePath: '/website',
   assetPrefix: isProd ? 'https://cdn.statically.io/gh/basheim/website/gh-pages/' : ''
 }
