@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import { getLink } from '../lib/gh-manager'
 
 const name = 'Bean'
 export const siteTitle = 'Next.js Sample Website'
@@ -40,11 +41,11 @@ export default function Layout({ children, home }: any) {
           </>
         ) : (
           <>
-            <Link href="/website">
+            <Link href={getLink('/')}>
               <a>
                 <Image
                   priority
-                  src="../../images/profile.jpeg"
+                  src="../images/profile.jpeg"
                   className={utilStyles.borderCircle}
                   height={108}
                   width={108}
@@ -53,7 +54,7 @@ export default function Layout({ children, home }: any) {
               </a>
             </Link>
             <h2 className={utilStyles.headingLg}>
-              <Link href="/website">
+              <Link href={getLink('/')}>
                 <a className={utilStyles.colorInherit}>{name}</a>
               </Link>
             </h2>
@@ -63,7 +64,7 @@ export default function Layout({ children, home }: any) {
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
-          <Link href="/website">
+          <Link href={getLink('/')}>
             <a>← Back to home</a>
           </Link>
         </div>
