@@ -1,31 +1,69 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/layout.module.css'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
+import Head from 'next/head';
+import Image from 'next/image';
+import { AppBar, Toolbar } from '@material-ui/core';
+import NavMenu from './navMenu';
+import Link from 'next/link';
+import { makeStyles } from '@material-ui/core/styles';
+import utilStyles from '../../styles/utils.module.css';
+
+const useStyles = makeStyles((theme) => ({
+  toolbar: {
+    borderBottom: `1px solid ${theme.palette.divider}`,
+  },
+  toolbarSecondary: {
+    justifyContent: 'space-between',
+    overflowX: 'auto',
+  },
+  toolbarLink: {
+    padding: theme.spacing(1),
+    flexShrink: 0,
+  },
+  container: {
+    maxWidth: '80%',
+    padding: '0 12x',
+    margin: '36px auto 72px'
+  },
+  header: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  backToHome: {
+    margin: '36px 0 0'
+  }
+}));
 
 const name = 'Bean'
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'Bean Blog'
 
 export default function Layout({ children, home }: any) {
+  const classes = useStyles();
+  const sections = [
+    {
+      title: 'Blog',
+      href: 'https://www.google.com'
+    },
+    {
+      title: 'Sandbox',
+      href: '/posts/so-it-begins'
+    }
+  ];
   return (
-    <div className={styles.container}>
+    <div className={classes.container}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="../website/favicon.ico" />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
         />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
         <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <AppBar position="static">
+        <Toolbar variant="dense" className={classes.toolbarSecondary}>
+          <NavMenu sections={sections}/>
+        </Toolbar>
+      </AppBar>
+      <header className={classes.header}>
         {home ? (
           <>
             <Image
@@ -62,7 +100,7 @@ export default function Layout({ children, home }: any) {
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div className={classes.backToHome}>
           <Link href='/'>
             <a>← Back to home</a>
           </Link>
