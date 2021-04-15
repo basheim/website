@@ -9,8 +9,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
   toolbarSecondary: {
-    justifyContent: 'flex-start',
-    overflowX: 'auto',
+    justifyContent: 'flex-start'
   },
   toolbarLink: {
     padding: theme.spacing(1),
@@ -22,13 +21,15 @@ const useStyles = makeStyles((theme) => ({
   },
   mainContainer: {
     width: '90%',
-    position: 'fixed',
+    position: 'relative',
     right: 0,
     left: 0,
     marginRight: 'auto',
     marginLeft: 'auto',
     borderTop: 100,
-    paddingTop: 30
+    paddingTop: 30,
+    overflowY: 'auto',
+    overflowX: 'hidden'
   },
   header: {
     display: 'flex',
