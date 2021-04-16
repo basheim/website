@@ -1,5 +1,4 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from '../components/base/layout';
+import Layout from '../components/base/layout';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
@@ -8,9 +7,6 @@ import React from 'react';
 export default function BlogPage({ allPostsData }: any) {
   return (
     <Layout identity={{title: 'Blog'}}>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
       <section>
         <ul>
           {allPostsData.map(({ id, date, title }: any) => (

@@ -1,4 +1,3 @@
-import Head from "next/head";
 import React from "react";
 import Image from 'next/image';
 import Layout from '../components/base/layout';
@@ -6,11 +5,11 @@ import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { getMarkdown } from "../lib/markdown";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
     borderCircle: {
         borderRadius: '80%'
     }
-}));
+});
 
 export async function getStaticProps() {
     const aboutData = await getMarkdown('about');

@@ -1,31 +1,19 @@
 import Head from 'next/head';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Button, Container } from '@material-ui/core';
 import NavMenu from './navMenu';
 import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-  },
   toolbarSecondary: {
     justifyContent: 'flex-start'
-  },
-  toolbarLink: {
-    padding: theme.spacing(1),
-    flexShrink: 0,
   },
   overallContainer: {
     width: 'auto',
     margin: 'auto auto 72px'
   },
   mainContainer: {
-    width: '90%',
-    position: 'relative',
-    right: 0,
-    left: 0,
-    marginRight: 'auto',
-    marginLeft: 'auto',
+    maxWidth: '90%',
     borderTop: 100,
     paddingTop: 30,
     overflowY: 'auto',
@@ -62,8 +50,8 @@ export default function Layout({ children, home, identity }: any) {
       href: '/blog'
     },
     {
-      title: 'Sandbox',
-      href: '/posts/so-it-begins'
+      title: '🚧 Sandbox',
+      href: '/under-construction'
     }
   ];
   return (
@@ -81,20 +69,20 @@ export default function Layout({ children, home, identity }: any) {
         <Toolbar variant="dense" className={classes.toolbarSecondary}>
           <NavMenu sections={sections} />
           <Typography variant="h6" className={classes.title}>
-          {identity.title}
-    </Typography>
+            {identity.title}
+          </Typography>
         </Toolbar>
       </AppBar>
-      <div className={classes.mainContainer}>
+      <Container className={classes.mainContainer}>
         <main>{children}</main>
         {!home && (
           <div className={classes.backToHome}>
             <Link href='/'>
-              <a>← Back to home</a>
+              <Button variant="contained" color="primary" href="#contained-buttons">← Back to home</Button>
             </Link>
           </div>
         )}
-      </div>
+      </Container>
     </div>
   )
 }
