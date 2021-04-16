@@ -29,37 +29,23 @@ export function getSortedPostsData() {
   // Sort posts by date
   return allPostsData.sort((a: any, b: any) => {
     if (a.date < b.date) {
-      return 1
+      return 1;
     } else {
-      return -1
+      return -1;
     }
   })
   
 }
 
 export function getAllPostIds() {
-    const fileNames = fs.readdirSync(postsDirectory)
-  
-    // Returns an array that looks like this:
-    // [
-    //   {
-    //     params: {
-    //       id: 'ssg-ssr'
-    //     }
-    //   },
-    //   {
-    //     params: {
-    //       id: 'pre-rendering'
-    //     }
-    //   }
-    // ]
+    const fileNames = fs.readdirSync(postsDirectory);
     return fileNames.map(fileName => {
       return {
         params: {
           id: fileName.replace(/\.md$/, '')
         }
       }
-    })
+    });
   }
 
   export async function getPostData(id: string) {

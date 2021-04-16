@@ -78,7 +78,7 @@ export default function Layout({ children, home, identity }: any) {
         {!home && (
           <div className={classes.backToHome}>
             <Link href='/'>
-              <Button variant="contained" color="primary" href="#contained-buttons">← Back to home</Button>
+              <Button variant="contained" color="primary" href="#contained-buttons">⬅ Back to home</Button>
             </Link>
           </div>
         )}

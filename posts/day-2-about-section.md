@@ -1,6 +1,7 @@
 ---
 title: 'Day 2 about Section'
 date: '2021-04-15'
+tags: 'website'
 ---
 
 So continues the work on the blog and initial website. Mostly working on random changes to the structure and design of the website.
