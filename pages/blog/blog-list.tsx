@@ -6,7 +6,7 @@ import React from 'react';
 
 export default function BlogList({ allPostsData }: any) {
   return (
-    <Layout identity={{title: 'Blog List'}}>
+    <Layout blog identity={{title: 'Blog List'}}>
       <section>
         <ul>
           {allPostsData.map(({ id, date, title }: any) => (

@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 
 export default function Post({ postData }: any) {
     return (
-      <Layout identity={{title: postData.title}}>
+      <Layout blog identity={{title: postData.title}}>
         <article>
           <h1>{postData.title}</h1>
           <div>

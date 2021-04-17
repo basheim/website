@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const siteTitle = 'Bean Blog'
 
-export default function Layout({ children, home, identity }: any) {
+export default function Layout({ children, home, identity, blog }: any) {
   const classes = useStyles();
   const sections = [
     {
@@ -77,8 +77,8 @@ export default function Layout({ children, home, identity }: any) {
         <main>{children}</main>
         {!home && (
           <div className={classes.backToHome}>
-            <Link href='/'>
-              <Button variant="contained" color="primary" href="#contained-buttons">⬅ Back to home</Button>
+            <Link href={blog ? '/blog' : '/'}>
+              <Button variant="contained" color="primary" href="#contained-buttons">{`⬅ Back to ${blog ? 'Blog ': ''} Home`}</Button>
             </Link>
           </div>
         )}
