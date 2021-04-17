@@ -37,6 +37,20 @@ export function getSortedPostsData() {
   
 }
 
+export function getPostDataByTag(postData: any) {
+  const tagMap: any = {};
+  for (const post of postData) {
+    const tags = post.tags.split(',');
+    for (const tag of tags) {
+      if (!tagMap[tag]) {
+        tagMap[tag] = [];
+      } 
+      tagMap[tag].push(post);
+    }
+  }
+  return tagMap;
+}
+
 export function getAllPostIds() {
     const fileNames = fs.readdirSync(postsDirectory);
     return fileNames.map(fileName => {

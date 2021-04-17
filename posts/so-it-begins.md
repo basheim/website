@@ -1,7 +1,8 @@
 ---
 title: 'So it Begins'
 date: '2021-04-14'
-tags: 'website'
+description: 'First post of this blog. Lets see where this goes...'
+tags: 'Website Development,Anxiety,Start-up'
 ---
 
 I am starting this blog to expand my knowledge of front end development and to work through some of my other anxiety related issues. Currently I am a Software Engineer working at Qualtrics, but I have taken a 3 month leave of absence with the goals of: solving my work related anxiety and finding my calling in life. So should be able to finish all of that in a week or so.

@@ -1,7 +1,8 @@
 ---
 title: 'Day 3 Tags'
 date: '2021-04-16'
-tags: 'website'
+description: 'Some planning associated around changes to the blog on the third day.'
+tags: 'Website Development'
 ---
 
 Continuing work to improve the blog section of the website, as well as create a nice front page.

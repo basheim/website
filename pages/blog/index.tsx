@@ -1,66 +1,54 @@
 import Layout from '../../components/base/layout';
-import { getSortedPostsData, getPostData } from '../../lib/posts';
+import { getSortedPostsData, getPostData, getPostDataByTag } from '../../lib/posts';
 import React from 'react';
-import Link from 'next/link';
-import { Grid, Typography, Button } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import { makeStyles } from '@material-ui/core/styles';
+import MainFeaturedPost from '../../components/blog/main-featured-post';
+import FeaturedPost from '../../components/blog/featured-post';
+import Sidebar from '../../components/blog/sidebar';
 
-function getSummaryHtmlString(htmlString: string): string {
-  const minIndex = 150;
-  let index;
-  let firstFlag = false;
-  if (minIndex > htmlString.length) {
-    return htmlString;
-  }
-  for (index = 0; index < htmlString.length; index++) {
-    if (index > minIndex) {
-      if (!firstFlag && htmlString.charAt(index - 1) === '<' && htmlString.charAt(index) === '/') {
-        firstFlag = true;
-      }
-      if (firstFlag && htmlString.charAt(index) === '>') {
-        return htmlString.substring(0, index);
-      }
-    }
-  }
-  return htmlString;
-}
+const useStyles = makeStyles((theme) => ({
+  mainGrid: {
+    marginTop: theme.spacing(3),
+  },
+}));
 
-export default function BlogIndex({ newestPostData }: any) {
-  let featuredPost = <></>;
-  if (newestPostData) {
-    featuredPost =
-      <div>
-        <Typography variant="h6">{`Featured Post: ${newestPostData.title}`}</Typography>
-        <div dangerouslySetInnerHTML={{ __html: `${getSummaryHtmlString(newestPostData.contentHtml)}<br/><br/>...` }} />
-        <Link href={`/blog/posts/${newestPostData.id}`}>
-          <Button variant="contained" color="primary" href="#contained-buttons">Go To Post ➡</Button>
-        </Link>
-      </div>;
-  }
+const sidebar = {
+  archives: [
+    { title: 'Blog List', url: '/blog/blog-list' }
+  ],
+  social: [
+    { name: 'GitHub', icon: GitHubIcon, url: 'https://github.com/basheim' }
+  ],
+};
+
+export default function BlogIndex({ newestPostData, tagPostData }: any) {
+  const classes = useStyles();
   return (
     <Layout identity={{ title: 'Blog' }}>
-      <Grid container spacing={1} direction="row" justify="center" alignItems="center" wrap="nowrap">
-        <Grid container item>
-          {featuredPost}
-        </Grid>
-        <Grid container item>
-          <div>
-            <Typography variant="h6">{`All Posts`}</Typography>
-            <Link href={`/blog/blog-list`}>
-              <Button variant="contained" color="primary" href="#contained-buttons">Go To All Post ➡</Button>
-            </Link>
-          </div>
-        </Grid>
-      </Grid>
+       <MainFeaturedPost post={newestPostData} />
+       <Grid container spacing={5} className={classes.mainGrid}>
+          <Grid container spacing={4}>
+            {Object.keys(tagPostData).map((tag: any) => (
+              <FeaturedPost key={tag} post={tagPostData[tag][0]} tag={tag} />
+            ))}
+          </Grid>
+            <Sidebar
+              archives={sidebar.archives}
+              social={sidebar.social}
+            />
+          </Grid>
     </Layout>
   )
 }
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
-  const newestPostData = await getPostData(allPostsData[0].id);
   return {
     props: {
-      newestPostData
+      tagPostData: getPostDataByTag(allPostsData),
+      newestPostData: await getPostData(allPostsData[0].id)
     }
   }
 }
