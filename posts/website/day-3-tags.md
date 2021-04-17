@@ -18,8 +18,12 @@ Tasks Completed:
 - Update blog page to be clearer.
 - Updating link formatting.
 - Create blog tags with sorted menus (website, startup, and random).
+- Create a complete front page.
+- Add recursive post searching (internal only)
 
 
 Tomorrows Goals:
-- Create a complete front page.
-- Blog Search based on tag / title.
+- Continue to write to the blog.
+- Clean up look of website further.
+- Explore another topic
+- Add blog searching in blog list.

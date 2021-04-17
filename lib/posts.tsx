@@ -6,16 +6,46 @@ import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
+function traverseDir(dir: string, paths: string[]) {
+  fs.readdirSync(dir).forEach(file => {
+    let fullPath = path.join(dir, file);
+    if (fs.lstatSync(fullPath).isDirectory()) {
+       traverseDir(fullPath, paths);
+     } else {
+       paths.push(fullPath);
+     }  
+  });
+}
+
+function searchDir(dir: string, id: string): string {
+  let filePaths: string[] = [];
+  fs.readdirSync(dir).forEach(file => {
+    let fullPath = path.join(dir, file);
+    if (fs.lstatSync(fullPath).isDirectory()) {
+      filePaths.push(searchDir(fullPath, id));
+     } 
+     if (fullPath.includes(`${id}.md`)) {
+      filePaths.push(fullPath);
+     }
+  });
+  for (const filePath of filePaths) {
+    if (filePath) {
+      return filePath;
+    }
+  }
+  return '';
+}
+
 export function getSortedPostsData() {
   // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory)
-  const allPostsData = fileNames.map(fileName => {
+  const filePaths: string[] = [];
+  traverseDir(postsDirectory, filePaths);
+  const allPostsData = filePaths.map(filePath => {
     // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, '')
+    const brokenPath = filePath.split('/');
+    const id = brokenPath[brokenPath.length - 1].replace(/\.md$/, '');
 
-    // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const fileContents = fs.readFileSync(filePath, 'utf8')
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents)
@@ -52,18 +82,23 @@ export function getPostDataByTag(postData: any) {
 }
 
 export function getAllPostIds() {
-    const fileNames = fs.readdirSync(postsDirectory);
-    return fileNames.map(fileName => {
+    // Get file names under /posts
+  const filePaths: string[] = [];
+  traverseDir(postsDirectory, filePaths);
+    return filePaths.map(filePath => {
+      // Remove ".md" from file name to get id
+    const brokenPath = filePath.split('/');
+    const id = brokenPath[brokenPath.length - 1].replace(/\.md$/, '');
       return {
         params: {
-          id: fileName.replace(/\.md$/, '')
+          id
         }
       }
     });
   }
 
   export async function getPostData(id: string) {
-    const fullPath = path.join(postsDirectory, `${id}.md`)
+    const fullPath = searchDir(postsDirectory, id);
     const fileContents = fs.readFileSync(fullPath, 'utf8')
   
     // Use gray-matter to parse the post metadata section

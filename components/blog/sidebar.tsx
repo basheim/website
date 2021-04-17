@@ -39,16 +39,14 @@ export default function Sidebar(props: any) {
                 Social
       </Typography>
             {social.map((network: any) => (
-                <LinkWrapper href={network.url}>
-                    <Link display="block" variant="body1" key={network.title} className={classes.sidebarLinks}>
-                        <Grid container direction="row" spacing={1} alignItems="center">
-                            <Grid item>
-                                <network.icon />
-                            </Grid>
-                            <Grid item>{network.name}</Grid>
+                <Link display="block" variant="body1" key={network.title} href={network.url} className={classes.sidebarLinks}>
+                    <Grid container direction="row" spacing={1} alignItems="center">
+                        <Grid item>
+                            <network.icon />
                         </Grid>
-                    </Link>
-                </LinkWrapper>
+                        <Grid item>{network.name}</Grid>
+                    </Grid>
+                </Link>
             ))}
         </Grid>
     );
