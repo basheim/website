@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#556cd6"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title>Bean Blog</title><link rel="icon" href="../website/favicon.ico"/><meta name="description" content="Learn how to build a personal website using Next.js"/><meta name="og:title" content="Bean Blog"/><meta name="next-head-count" content="6"/><noscript data-n-css=""></noscript><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/framework.142b815260ac90484ada.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/commons.c2f35c4bccdaebb8c3e3.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/main-bc3c18172150d9469e79.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/b8a1c8fecf26718f58aeac72707645a343c8e4f9.e7550cf57e53b5c28aa9.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/_app-5d6b972e7e57c45b8709.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/8eed7d7aca6b0c6fb9de90700524e119722ceb90.4342b4fc880fd8e199f1.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/f1b6b1ff47e86da6ac279b1e3b338ec1b3db4894.8b5fa31efa450558e2e9.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/blog/posts/%5Bid%5D-58cc8339f054b4a01cb5.js" as="script"/><style id="jss-server-side">html {
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#556cd6"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title>Bean Blog</title><link rel="icon" href="../website/favicon.ico"/><meta name="description" content="Learn how to build a personal website using Next.js"/><meta name="og:title" content="Bean Blog"/><meta name="next-head-count" content="6"/><noscript data-n-css=""></noscript><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/framework.c8fa09d813288c646eb6.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/commons.de55a870d680891841f5.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/main-cae142c28b8cf6ecad62.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/8da5b59bfd1820e600c009578aaf758cf630a149.a9d667ac968fdde3ea01.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/_app-69f7d788546a299b93d2.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/425ed2e36051c88be14f129c54c7afe2fbe9c6b4.a15f36528267a1595b59.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/f1b6b1ff47e86da6ac279b1e3b338ec1b3db4894.389daef3d9d59dda6bab.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/blog/posts/%5Bid%5D-a65d5793cc11a7604be9.js" as="script"/><style id="jss-server-side">html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,7 +17,7 @@ body {
   font-weight: 400;
   line-height: 1.43;
   letter-spacing: 0.01071em;
-  background-color: #fff;
+  background-color: #cdcdcd;
 }
 @media print {
   body {
@@ -25,7 +25,7 @@ body {
   }
 }
 body::backdrop {
-  background-color: #fff;
+  background-color: #cdcdcd;
 }
 .MuiSvgIcon-root {
   fill: currentColor;
@@ -737,6 +737,37 @@ body::backdrop {
     max-width: 1920px;
   }
 }
+  .MuiDivider-root {
+    border: none;
+    height: 1px;
+    margin: 0;
+    flex-shrink: 0;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiDivider-absolute {
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+  }
+  .MuiDivider-inset {
+    margin-left: 72px;
+  }
+  .MuiDivider-light {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  .MuiDivider-middle {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  .MuiDivider-vertical {
+    width: 1px;
+    height: 100%;
+  }
+  .MuiDivider-flexItem {
+    height: auto;
+    align-self: stretch;
+  }
   .MuiDrawer-docked {
     flex: 0 0 auto;
   }
@@ -826,27 +857,32 @@ body::backdrop {
     justify-content: flex-start;
   }
   .jss2 {
-    width: auto;
-    margin: auto auto 72px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    background-color: #cdcdcd;
   }
   .jss3 {
-    max-width: 90%;
-    border-top: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding-top: 30px;
+    flex: 1;
   }
   .jss4 {
+    border: 100px;
+    padding: 30px;
+    max-width: 90%;
+    min-height: 70vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: white;
+  }
+  .jss5 {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
-  .jss5 {
-    margin: 36px 0 0;
-  }
   .jss6 {
     text-align: left;
-  }</style></head><body><div id="__next"><div class="jss2"><header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionSticky MuiAppBar-colorPrimary MuiPaper-elevation4"><div class="MuiToolbar-root MuiToolbar-dense jss1 MuiToolbar-gutters"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart" tabindex="0" type="button" aria-label="menu"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></span></button><h6 class="MuiTypography-root jss6 MuiTypography-h6">Anxiety Week 1</h6></div></header><div class="MuiContainer-root jss3 MuiContainer-maxWidthLg"><main><article><h1>Anxiety Week 1</h1><div><time dateTime="2021-04-16">April 16, 2021</time></div><div><p>I have been taking this week easy, taking many breaks and focusing on myself. I haven't been feeling down or anxious about work since my leave has begun. Honestly, I haven't felt this good for awhile. I am beginning to get a little restless, so having some side projects has helped keep me sane. Overall, I hope to have the energy to spend more time working on my skills and less on relaxing in the near future. For now, I am happy that I took this break.</p>
+  }</style></head><body><div id="__next"><div class="jss2"><header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionSticky MuiAppBar-colorPrimary MuiPaper-elevation4"><div class="MuiToolbar-root MuiToolbar-regular jss1 MuiToolbar-gutters"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart" tabindex="0" type="button" aria-label="menu"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></span></button><h6 class="MuiTypography-root jss6 MuiTypography-h6">Anxiety Week 1</h6><div class="jss3"></div><a class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary" tabindex="0" aria-disabled="false" href="#contained-buttons"><span class="MuiButton-label">⬅ Back to Blog Home</span></a></div></header><hr class="MuiDivider-root"/><div class="MuiContainer-root jss4 MuiContainer-maxWidthLg"><main><article><h1>Anxiety Week 1</h1><div><time dateTime="2021-04-16">April 16, 2021</time></div><div><p>I have been taking this week easy, taking many breaks and focusing on myself. I haven't been feeling down or anxious about work since my leave has begun. Honestly, I haven't felt this good for awhile. I am beginning to get a little restless, so having some side projects has helped keep me sane. Overall, I hope to have the energy to spend more time working on my skills and less on relaxing in the near future. For now, I am happy that I took this break.</p>
 <p>Goals:</p>
 <ul>
 <li>Begin healthy habits: brush teeth twice daily, walk the dog daily, run / workout daily, shave daily, drink more water, clean at least 1 room a day, and create a consistent sleep schedule.</li>
@@ -861,4 +897,4 @@ body::backdrop {
 <li>Website is up and running (though very basic currently).</li>
 <li>Reading is sporatic at best.</li>
 </ul>
-</div></article></main><div class="jss5"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary" tabindex="0" aria-disabled="false" href="#contained-buttons"><span class="MuiButton-label">⬅ Back to Blog  Home</span></a></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"postData":{"id":"anxiety-week1","contentHtml":"\u003cp\u003eI have been taking this week easy, taking many breaks and focusing on myself. I haven't been feeling down or anxious about work since my leave has begun. Honestly, I haven't felt this good for awhile. I am beginning to get a little restless, so having some side projects has helped keep me sane. Overall, I hope to have the energy to spend more time working on my skills and less on relaxing in the near future. For now, I am happy that I took this break.\u003c/p\u003e\n\u003cp\u003eGoals:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eBegin healthy habits: brush teeth twice daily, walk the dog daily, run / workout daily, shave daily, drink more water, clean at least 1 room a day, and create a consistent sleep schedule.\u003c/li\u003e\n\u003cli\u003eSchedule appointment with counselor.\u003c/li\u003e\n\u003cli\u003eBegin working half day schedules with CS related projects / tasks.\u003c/li\u003e\n\u003cli\u003eRead daily.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eCompleted Tasks:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eHealthy Habits started: brush teeth twice daily, walk the dog daily, run daily, and clean at least 1 room a day. The remainder are still in progress.\u003c/li\u003e\n\u003cli\u003eCounselor appointment is scheduled for May.\u003c/li\u003e\n\u003cli\u003eWebsite is up and running (though very basic currently).\u003c/li\u003e\n\u003cli\u003eReading is sporatic at best.\u003c/li\u003e\n\u003c/ul\u003e\n","title":"Anxiety Week 1","date":"2021-04-16","description":"Notes on my first week of anxiety leave","tags":"Anxiety"}},"__N_SSG":true},"page":"/blog/posts/[id]","query":{"id":"anxiety-week1"},"buildId":"RHAAYVkBRPRSi1Dzot9br","assetPrefix":"https://cdn.statically.io/gh/basheim/website/gh-pages","isFallback":false,"gsp":true}</script><script nomodule="" src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/polyfills-28654a8145d7603786fc.js"></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/framework.142b815260ac90484ada.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/commons.c2f35c4bccdaebb8c3e3.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/main-bc3c18172150d9469e79.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/b8a1c8fecf26718f58aeac72707645a343c8e4f9.e7550cf57e53b5c28aa9.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/_app-5d6b972e7e57c45b8709.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/8eed7d7aca6b0c6fb9de90700524e119722ceb90.4342b4fc880fd8e199f1.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/f1b6b1ff47e86da6ac279b1e3b338ec1b3db4894.8b5fa31efa450558e2e9.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/blog/posts/%5Bid%5D-58cc8339f054b4a01cb5.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/RHAAYVkBRPRSi1Dzot9br/_buildManifest.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/RHAAYVkBRPRSi1Dzot9br/_ssgManifest.js" async=""></script></body></html>
+</div></article></main></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"postData":{"id":"anxiety-week1","contentHtml":"\u003cp\u003eI have been taking this week easy, taking many breaks and focusing on myself. I haven't been feeling down or anxious about work since my leave has begun. Honestly, I haven't felt this good for awhile. I am beginning to get a little restless, so having some side projects has helped keep me sane. Overall, I hope to have the energy to spend more time working on my skills and less on relaxing in the near future. For now, I am happy that I took this break.\u003c/p\u003e\n\u003cp\u003eGoals:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eBegin healthy habits: brush teeth twice daily, walk the dog daily, run / workout daily, shave daily, drink more water, clean at least 1 room a day, and create a consistent sleep schedule.\u003c/li\u003e\n\u003cli\u003eSchedule appointment with counselor.\u003c/li\u003e\n\u003cli\u003eBegin working half day schedules with CS related projects / tasks.\u003c/li\u003e\n\u003cli\u003eRead daily.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eCompleted Tasks:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eHealthy Habits started: brush teeth twice daily, walk the dog daily, run daily, and clean at least 1 room a day. The remainder are still in progress.\u003c/li\u003e\n\u003cli\u003eCounselor appointment is scheduled for May.\u003c/li\u003e\n\u003cli\u003eWebsite is up and running (though very basic currently).\u003c/li\u003e\n\u003cli\u003eReading is sporatic at best.\u003c/li\u003e\n\u003c/ul\u003e\n","title":"Anxiety Week 1","date":"2021-04-16","description":"Notes on my first week of anxiety leave","tags":"Anxiety"}},"__N_SSG":true},"page":"/blog/posts/[id]","query":{"id":"anxiety-week1"},"buildId":"hBYZzJoWBSkrHeKuHLJf6","assetPrefix":"https://cdn.statically.io/gh/basheim/website/gh-pages","isFallback":false,"gsp":true}</script><script nomodule="" src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/polyfills-462676b8e60afb64d330.js"></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/framework.c8fa09d813288c646eb6.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/commons.de55a870d680891841f5.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/main-cae142c28b8cf6ecad62.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/8da5b59bfd1820e600c009578aaf758cf630a149.a9d667ac968fdde3ea01.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/_app-69f7d788546a299b93d2.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/425ed2e36051c88be14f129c54c7afe2fbe9c6b4.a15f36528267a1595b59.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/f1b6b1ff47e86da6ac279b1e3b338ec1b3db4894.389daef3d9d59dda6bab.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/blog/posts/%5Bid%5D-a65d5793cc11a7604be9.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/hBYZzJoWBSkrHeKuHLJf6/_buildManifest.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/hBYZzJoWBSkrHeKuHLJf6/_ssgManifest.js" async=""></script></body></html>

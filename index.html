@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#556cd6"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title>Bean Blog</title><link rel="icon" href="../website/favicon.ico"/><meta name="description" content="Learn how to build a personal website using Next.js"/><meta name="og:title" content="Bean Blog"/><meta name="next-head-count" content="6"/><noscript data-n-css=""></noscript><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/framework.142b815260ac90484ada.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/commons.c2f35c4bccdaebb8c3e3.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/main-bc3c18172150d9469e79.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/b8a1c8fecf26718f58aeac72707645a343c8e4f9.e7550cf57e53b5c28aa9.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/_app-5d6b972e7e57c45b8709.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/8eed7d7aca6b0c6fb9de90700524e119722ceb90.4342b4fc880fd8e199f1.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/index-067d59ee36af61771064.js" as="script"/><style id="jss-server-side">html {
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#556cd6"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title>Bean Blog</title><link rel="icon" href="../website/favicon.ico"/><meta name="description" content="Learn how to build a personal website using Next.js"/><meta name="og:title" content="Bean Blog"/><meta name="next-head-count" content="6"/><noscript data-n-css=""></noscript><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/framework.c8fa09d813288c646eb6.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/commons.de55a870d680891841f5.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/main-cae142c28b8cf6ecad62.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/8da5b59bfd1820e600c009578aaf758cf630a149.a9d667ac968fdde3ea01.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/_app-69f7d788546a299b93d2.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/425ed2e36051c88be14f129c54c7afe2fbe9c6b4.a15f36528267a1595b59.js" as="script"/><link rel="preload" href="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/index-1294d9ae872b8577627f.js" as="script"/><style id="jss-server-side">html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,7 +17,7 @@ body {
   font-weight: 400;
   line-height: 1.43;
   letter-spacing: 0.01071em;
-  background-color: #fff;
+  background-color: #cdcdcd;
 }
 @media print {
   body {
@@ -25,7 +25,7 @@ body {
   }
 }
 body::backdrop {
-  background-color: #fff;
+  background-color: #cdcdcd;
 }
 .MuiSvgIcon-root {
   fill: currentColor;
@@ -517,6 +517,37 @@ body::backdrop {
     max-width: 1920px;
   }
 }
+  .MuiDivider-root {
+    border: none;
+    height: 1px;
+    margin: 0;
+    flex-shrink: 0;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiDivider-absolute {
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+  }
+  .MuiDivider-inset {
+    margin-left: 72px;
+  }
+  .MuiDivider-light {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  .MuiDivider-middle {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  .MuiDivider-vertical {
+    width: 1px;
+    height: 100%;
+  }
+  .MuiDivider-flexItem {
+    height: auto;
+    align-self: stretch;
+  }
   .MuiDrawer-docked {
     flex: 0 0 auto;
   }
@@ -1104,23 +1135,28 @@ body::backdrop {
     justify-content: flex-start;
   }
   .jss5 {
-    width: auto;
-    margin: auto auto 72px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    background-color: #cdcdcd;
   }
   .jss6 {
-    max-width: 90%;
-    border-top: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding-top: 30px;
+    flex: 1;
   }
   .jss7 {
+    border: 100px;
+    padding: 30px;
+    max-width: 90%;
+    min-height: 70vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: white;
+  }
+  .jss8 {
     display: flex;
     align-items: center;
     flex-direction: column;
-  }
-  .jss8 {
-    margin: 36px 0 0;
   }
   .jss9 {
     text-align: left;
@@ -1152,4 +1188,4 @@ body::backdrop {
     padding: 48px;
     padding-right: 0;
   }
-}</style></head><body><div id="__next"><div class="jss5"><header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionSticky MuiAppBar-colorPrimary MuiPaper-elevation4"><div class="MuiToolbar-root MuiToolbar-dense jss4 MuiToolbar-gutters"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart" tabindex="0" type="button" aria-label="menu"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></span></button><h6 class="MuiTypography-root jss9 MuiTypography-h6">Welcome</h6></div></header><div class="MuiContainer-root jss6 MuiContainer-maxWidthLg"><main><div class="MuiPaper-root jss1 MuiPaper-elevation1 MuiPaper-rounded"><div class="jss2"></div><div class="MuiGrid-root MuiGrid-container"><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6"><div class="jss3"><h1 class="MuiTypography-root MuiTypography-h3 MuiTypography-colorInherit MuiTypography-gutterBottom">Blog</h1><p class="MuiTypography-root MuiTypography-h5 MuiTypography-colorInherit MuiTypography-paragraph">Articles on anything and everything</p></div></div></div></div><h2 class="MuiTypography-root MuiTypography-h5">Not a lot going on here. Still building...</h2></main></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/","query":{},"buildId":"RHAAYVkBRPRSi1Dzot9br","assetPrefix":"https://cdn.statically.io/gh/basheim/website/gh-pages","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/polyfills-28654a8145d7603786fc.js"></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/framework.142b815260ac90484ada.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/commons.c2f35c4bccdaebb8c3e3.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/main-bc3c18172150d9469e79.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/b8a1c8fecf26718f58aeac72707645a343c8e4f9.e7550cf57e53b5c28aa9.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/_app-5d6b972e7e57c45b8709.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/8eed7d7aca6b0c6fb9de90700524e119722ceb90.4342b4fc880fd8e199f1.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/index-067d59ee36af61771064.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/RHAAYVkBRPRSi1Dzot9br/_buildManifest.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/RHAAYVkBRPRSi1Dzot9br/_ssgManifest.js" async=""></script></body></html>
+}</style></head><body><div id="__next"><div class="jss5"><header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionSticky MuiAppBar-colorPrimary MuiPaper-elevation4"><div class="MuiToolbar-root MuiToolbar-regular jss4 MuiToolbar-gutters"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart" tabindex="0" type="button" aria-label="menu"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></span></button><h6 class="MuiTypography-root jss9 MuiTypography-h6">Welcome</h6><div class="jss6"></div></div></header><hr class="MuiDivider-root"/><div class="MuiContainer-root jss7 MuiContainer-maxWidthLg"><main><div class="MuiPaper-root jss1 MuiPaper-elevation1 MuiPaper-rounded"><div class="jss2"></div><div class="MuiGrid-root MuiGrid-container"><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6"><div class="jss3"><h1 class="MuiTypography-root MuiTypography-h3 MuiTypography-colorInherit MuiTypography-gutterBottom">Blog</h1><p class="MuiTypography-root MuiTypography-h5 MuiTypography-colorInherit MuiTypography-paragraph">Articles on anything and everything</p></div></div></div></div><h2 class="MuiTypography-root MuiTypography-h5">Not a lot going on here. Still building...</h2></main></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/","query":{},"buildId":"hBYZzJoWBSkrHeKuHLJf6","assetPrefix":"https://cdn.statically.io/gh/basheim/website/gh-pages","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/polyfills-462676b8e60afb64d330.js"></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/framework.c8fa09d813288c646eb6.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/commons.de55a870d680891841f5.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/main-cae142c28b8cf6ecad62.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/8da5b59bfd1820e600c009578aaf758cf630a149.a9d667ac968fdde3ea01.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/_app-69f7d788546a299b93d2.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/425ed2e36051c88be14f129c54c7afe2fbe9c6b4.a15f36528267a1595b59.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/chunks/pages/index-1294d9ae872b8577627f.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/hBYZzJoWBSkrHeKuHLJf6/_buildManifest.js" async=""></script><script src="https://cdn.statically.io/gh/basheim/website/gh-pages/_next/static/hBYZzJoWBSkrHeKuHLJf6/_ssgManifest.js" async=""></script></body></html>
