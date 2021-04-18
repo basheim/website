@@ -1,6 +1,6 @@
 import Layout from '../../../components/base/layout';
 import { getAllPostIds, getPostData } from '../../../lib/posts';
-import Date from '../../../components/date';
+import Date from '../../../components/util/date';
 
 export async function getStaticProps({ params }: any) {
   const postData = await getPostData(params.id)
@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 
 export default function Post({ postData }: any) {
     return (
-      <Layout blog identity={{title: postData.title}}>
+      <Layout identity={{title: postData.title}} back={{href: '/blog', title: 'Blog Home'}}>
         <article>
           <h1>{postData.title}</h1>
           <div>

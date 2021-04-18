@@ -23,7 +23,7 @@ export async function getStaticProps() {
 export default function AboutPage({ aboutData }: any) {
     const classes = useStyles();
     return (
-        <Layout identity={{ title: 'About' }}>
+        <Layout identity={{ title: 'About' }} back={{href: '/', title: 'Home'}}>
             <Grid container spacing={1} direction="row" justify="center" alignItems="center" wrap="nowrap">
                 <Grid container item>
                     <article>

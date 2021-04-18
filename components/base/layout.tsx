@@ -1,31 +1,37 @@
 import Head from 'next/head';
-import { AppBar, Toolbar, Typography, Button, Container } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Button, Container, Divider } from '@material-ui/core';
 import NavMenu from './navMenu';
 import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   toolbarSecondary: {
     justifyContent: 'flex-start'
   },
   overallContainer: {
-    width: 'auto',
-    margin: 'auto auto 72px'
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#cdcdcd',
+    display: 'flex',
+    flexFlow: 'column'
+  },
+  paddingDiv: {
+    flex: '1'
   },
   mainContainer: {
+    minHeight:"70vh",
     maxWidth: '90%',
-    borderTop: 100,
-    paddingTop: 30,
+    border:100,
+    padding: 30,
     overflowY: 'auto',
-    overflowX: 'hidden'
+    overflowX: 'hidden',
+    backgroundColor: 'white'
   },
   header: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center'
-  },
-  backToHome: {
-    margin: '36px 0 0'
   },
   title: {
     textAlign: 'left'
@@ -34,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const siteTitle = 'Bean Blog'
 
-export default function Layout({ children, home, identity, blog }: any) {
+export default function Layout({ children, home, identity, back, noContainer }: any) {
   const classes = useStyles();
   const sections = [
     {
@@ -51,7 +57,7 @@ export default function Layout({ children, home, identity, blog }: any) {
     },
     {
       title: '🚧 Sandbox',
-      href: '/under-construction'
+      href: '/sandbox'
     }
   ];
   return (
@@ -65,24 +71,38 @@ export default function Layout({ children, home, identity, blog }: any) {
         />
         <meta name="og:title" content={siteTitle} />
       </Head>
-      <AppBar position="sticky">
-        <Toolbar variant="dense" className={classes.toolbarSecondary}>
+      <AppBar position={noContainer ? "fixed" : "sticky"}>
+        <Toolbar variant="regular" className={classes.toolbarSecondary}>
           <NavMenu sections={sections} />
           <Typography variant="h6" className={classes.title}>
             {identity.title}
           </Typography>
+          <div className={classes.paddingDiv}/>
+          {!home && (
+          <Link href={back.href}>
+              <Button variant="contained" color="primary" href="#contained-buttons">{`⬅ Back to ${back.title}`}</Button>
+          </Link>
+          )}
         </Toolbar>
       </AppBar>
-      <Container className={classes.mainContainer}>
-        <main>{children}</main>
-        {!home && (
-          <div className={classes.backToHome}>
-            <Link href={blog ? '/blog' : '/'}>
-              <Button variant="contained" color="primary" href="#contained-buttons">{`⬅ Back to ${blog ? 'Blog ': ''} Home`}</Button>
-            </Link>
-          </div>
-        )}
-      </Container>
+      <Divider />
+{!noContainer && (
+  <Container className={classes.mainContainer}>
+  <main>{children}</main>
+</Container>
+)}
+{noContainer && (
+  <main>{children}</main>
+)}
+      
     </div>
   )
 }
+
+Layout.propTypes = {
+  children: PropTypes.object,
+  home: PropTypes.bool,
+  identity: PropTypes.object,
+  back: PropTypes.object,
+  noContainer: PropTypes.bool
+};

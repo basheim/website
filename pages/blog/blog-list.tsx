@@ -1,12 +1,12 @@
 import Layout from '../../components/base/layout';
 import { getSortedPostsData } from '../../lib/posts';
 import Link from 'next/link';
-import Date from '../../components/date';
+import Date from '../../components/util/date';
 import React from 'react';
 
 export default function BlogList({ allPostsData }: any) {
   return (
-    <Layout blog identity={{title: 'Blog List'}}>
+    <Layout identity={{title: 'Blog List'}} back={{href: '/blog', title: 'Blog Home'}}>
       <section>
         <ul>
           {allPostsData.map(({ id, date, title }: any) => (

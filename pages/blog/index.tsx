@@ -26,7 +26,7 @@ const sidebar = {
 export default function BlogIndex({ newestPostData, tagPostData }: any) {
   const classes = useStyles();
   return (
-    <Layout identity={{ title: 'Blog' }}>
+    <Layout identity={{ title: 'Blog' }} back={{href: '/', title: 'Home'}}>
        <MainFeaturedPost post={newestPostData} />
        <Grid container spacing={5} className={classes.mainGrid}>
           <Grid container spacing={4}>
