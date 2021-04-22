@@ -1,7 +1,6 @@
 import Head from 'next/head';
-import { AppBar, Toolbar, Typography, Button, Container, Divider } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Container } from '@material-ui/core';
 import NavMenu from './navMenu';
-import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import { Scrollbar } from 'react-scrollbars-custom';

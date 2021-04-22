@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconButton, SwipeableDrawer, List, ListItem, ListItemText, Grid, Divider, Tooltip } from '@material-ui/core';
-import { Menu, ArrowBack } from '@material-ui/icons';
+import { Menu, ArrowBack, Close } from '@material-ui/icons';
 import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -14,7 +14,6 @@ const useStyles = makeStyles({
   }
 });
 
-
 export default function NavMenu(props: any) {
   const classes = useStyles();
   const { sections, home, back } = props;
@@ -27,33 +26,46 @@ export default function NavMenu(props: any) {
       justify='flex-start'
       alignItems='flex-start'
       className={classes.navMenuList}
-      role="presentation"
       onClick={() => setIsOpen(false)}
     >
-      {!home && (
-        <div>
-
-          <Link href={back.href}>
-            <Tooltip title={`Back to ${back.title}`} placement='right-end'>
+      <Grid item>
+        <Grid
+          container
+          direction='row'
+          justify='space-evenly'
+          spacing={3}
+        >
+          {!home && (
+            <Grid item>
+              <Link href={back.href}>
+                <Tooltip title={`Back to ${back.title}`} placement='right-end'>
+                  <IconButton edge="end" color="inherit">
+                    <ArrowBack />
+                  </IconButton>
+                </Tooltip>
+              </Link>
+            </Grid>
+          )}
+          <Grid item>
+            <Tooltip title={`Exit Menu`} placement='right-end'>
               <IconButton edge="end" color="inherit">
-                <ArrowBack />
+                <Close />
               </IconButton>
             </Tooltip>
-          </Link>
-          <Divider />
-        </div>
-      )}
-      <List>
-        {navSections.map((section: any) => (
-          <Link href={section.href} key={section.title} passHref>
-            <ListItem button component="a">
-              <ListItemText primary={section.title} />
-            </ListItem>
-          </Link>
-        ))}
-      </List>
-
-
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        <List>
+          {navSections.map((section: any) => (
+            <Link href={section.href} key={section.title} passHref>
+              <ListItem button component="a">
+                <ListItemText primary={section.title} />
+              </ListItem>
+            </Link>
+          ))}
+        </List>
+      </Grid>
     </Grid>
   );
 
