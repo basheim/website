@@ -1,38 +1,49 @@
 import React from 'react';
-import { IconButton, SwipeableDrawer, List, ListItem, ListItemText } from '@material-ui/core';
-import { Menu } from '@material-ui/icons';
+import { IconButton, SwipeableDrawer, List, ListItem, ListItemText, Grid, Divider, Tooltip } from '@material-ui/core';
+import { Menu, ArrowBack } from '@material-ui/icons';
 import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  list: {
+  navMenuList: {
+    width: 'auto',
+    height: '100%'
+  },
+  drawer: {
     width: 'auto'
   }
 });
 
+
 export default function NavMenu(props: any) {
   const classes = useStyles();
-  const { sections } = props;
-  const [state, setState] = React.useState({
-    open: false,
-  });
-
-  const toggleDrawer = (openSetting: any) => (event: any) => {
-    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, open: openSetting });
-  };
+  const { sections, home, back } = props;
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const list = (navSections: any[]) => (
-    <div
-      className="navMenuList"
+    <Grid
+      container
+      direction='column'
+      justify='flex-start'
+      alignItems='flex-start'
+      className={classes.navMenuList}
       role="presentation"
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
+      onClick={() => setIsOpen(false)}
     >
-      <List className={classes.list}>
+      {!home && (
+        <div>
+
+          <Link href={back.href}>
+            <Tooltip title={`Back to ${back.title}`} placement='right-end'>
+              <IconButton edge="end" color="inherit">
+                <ArrowBack />
+              </IconButton>
+            </Tooltip>
+          </Link>
+          <Divider />
+        </div>
+      )}
+      <List>
         {navSections.map((section: any) => (
           <Link href={section.href} key={section.title} passHref>
             <ListItem button component="a">
@@ -41,18 +52,22 @@ export default function NavMenu(props: any) {
           </Link>
         ))}
       </List>
-    </div>
+
+
+    </Grid>
   );
 
   return (
     <React.Fragment>
-      <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+
+      <IconButton edge="start" color="inherit" onClick={() => setIsOpen(isOpen => !isOpen)}>
         <Menu />
       </IconButton>
       <SwipeableDrawer
-        open={state['open']}
-        onClose={toggleDrawer(false)}
-        onOpen={toggleDrawer(true)}
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        onOpen={() => setIsOpen(true)}
+        className={classes.drawer}
       >
         {list(sections)}
       </SwipeableDrawer>

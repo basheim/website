@@ -124,7 +124,7 @@ export default function PongGame({ }: any) {
     }, []);
     const classes = useStyles();
 
-    const speed = windowDimensions.width * 0.6 / 2;
+    const speed = windowDimensions.width * 0.6 / 4;
     const x = useMotionValue(0);
     const y = useMotionValue(0);
     let animations: AnimationData;
@@ -222,8 +222,10 @@ export default function PongGame({ }: any) {
                 const yRatio = Math.abs(newY/newX);
                 if (animations.wallFlags.right) {
                     const ySteps = Math.abs(yRatio * remainingY);
-                    const xSteps = Math.abs(xRatio * (ballMaxX - ballMinX));
+                    const xSteps = Math.abs(xRatio * (maxX - minX));
+                    console.log(`xs: ${xSteps}, ys: ${ySteps}`);
                     if (xSteps < ySteps) {
+                        console.log('going  to y r')
                         if (goingDown) {
                             newY = ballMaxY;
                         } else {
@@ -231,6 +233,7 @@ export default function PongGame({ }: any) {
                         }
                         newX = animations.x - (xRatio * remainingY);
                     } else {
+                        console.log('going left')
                         if (goingDown) {
                             newY = animations.y + (yRatio * (ballMaxX - ballMinX));
                         } else {
@@ -245,16 +248,17 @@ export default function PongGame({ }: any) {
                 } 
                 if (animations.wallFlags.left) {
                     const ySteps = Math.abs(yRatio * remainingY);
-                    const xSteps = Math.abs(xRatio * (ballMaxX - ballMinX));
-                    console.log(remainingY);
-                    if (xSteps < ySteps) {
+                    const xSteps = Math.abs(xRatio * (maxX - minX));
+                    if (xSteps > ySteps) {
                         if (goingDown) {
+                            console.log('going to y l')
                             newY = ballMaxY;
                         } else {
                             newY = ballMinY;
                         }
                         newX = animations.x + (xRatio * remainingY);
                     } else {
+                        console.log('going right')
                         if (goingDown) {
                             newY = animations.y + (yRatio * (ballMaxX - ballMinX));
                         } else {
@@ -268,10 +272,10 @@ export default function PongGame({ }: any) {
                     wallFlags.hitBottom = false;
                 }
                 if (animations.wallFlags.bottom) {
-                    const ySteps = Math.abs(yRatio * (ballMaxY - ballMinY));
+                    const ySteps = Math.abs(yRatio * (maxY - minY));
                     const xSteps = Math.abs(xRatio * remainingX);
                     if (xSteps < ySteps) {
-                        console.log('going to x wall')
+                        console.log('going to x wall b')
                         if (goingRight) {
                             newX = ballMaxX;
                         } else {
@@ -279,7 +283,7 @@ export default function PongGame({ }: any) {
                         }
                         newY = animations.y - (yRatio * remainingX);
                     } else {
-                        console.log('going to y wall')
+                        console.log('going to y wall b')
                         if (goingRight) {
                             newX = animations.x + (xRatio * (ballMaxY - ballMinY));
                         } else {
@@ -293,10 +297,10 @@ export default function PongGame({ }: any) {
                     wallFlags.hitBottom = true;
                 }
                 if (animations.wallFlags.top) {
-                    const ySteps = Math.abs(yRatio * (ballMaxY - ballMinY));
+                    const ySteps = Math.abs(yRatio * (maxY - minY));
                     const xSteps = Math.abs(xRatio * remainingX);
-                    if (xSteps < ySteps) {
-                        console.log('going to x wall')
+                    if (xSteps > ySteps) {
+                        console.log('going to x wall t')
                         if (goingRight) {
                             newX = ballMaxX;
                         } else {
@@ -304,7 +308,7 @@ export default function PongGame({ }: any) {
                         }
                         newY = animations.y + (yRatio * remainingX);
                     } else {
-                        console.log('going to y wall')
+                        console.log('going to y wall t')
                         if (goingRight) {
                             newX = animations.x + (xRatio * (ballMaxY - ballMinY));
                         } else {

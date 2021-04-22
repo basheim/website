@@ -4,30 +4,29 @@ import NavMenu from './navMenu';
 import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import { Scrollbar } from 'react-scrollbars-custom';
 
 const useStyles = makeStyles((theme) => ({
+  toolbarPrimary: {
+    background: 'rgba(0,0,0,0)'
+  },
   toolbarSecondary: {
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    background: 'rgba(0,0,0,0)'
   },
   overallContainer: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#cdcdcd',
+    width: '100vw',
+    height: '100vh',
+    background: 'linear-gradient(180deg, #0055ff 0%, rgb(0, 153, 255) 100%)',
     display: 'flex',
     flexFlow: 'column',
     overflow: 'hidden'
   },
-  paddingDiv: {
-    flex: '1'
-  },
   mainContainer: {
-    minHeight:"70vh",
     maxWidth: '90%',
-    border:100,
+    border: 100,
     padding: 30,
-    overflowY: 'auto',
-    overflowX: 'hidden',
-    backgroundColor: 'white'
+    overflowX: 'hidden'
   },
   header: {
     display: 'flex',
@@ -36,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     textAlign: 'left'
+  },
+  scrollBar: {
+    width: 50,
   }
 }));
 
@@ -72,30 +74,24 @@ export default function Layout({ children, home, identity, back, noContainer }: 
         />
         <meta name="og:title" content={siteTitle} />
       </Head>
-      <AppBar position={noContainer ? "fixed" : "sticky"}>
+      <AppBar elevation={0} position={noContainer ? "fixed" : "sticky"} className={classes.toolbarPrimary}>
         <Toolbar variant="regular" className={classes.toolbarSecondary}>
-          <NavMenu sections={sections} />
+          <NavMenu sections={sections} home={home} back={back} />
           <Typography variant="h6" className={classes.title}>
             {identity.title}
           </Typography>
-          <div className={classes.paddingDiv}/>
-          {!home && (
-          <Link href={back.href}>
-              <Button variant="contained" color="primary" href="#contained-buttons">{`⬅ Back to ${back.title}`}</Button>
-          </Link>
-          )}
         </Toolbar>
       </AppBar>
-      <Divider />
-{!noContainer && (
-  <Container className={classes.mainContainer}>
-  <main>{children}</main>
-</Container>
-)}
-{noContainer && (
-  <main>{children}</main>
-)}
-      
+      {!noContainer && (
+        <Scrollbar className={classes.scrollBar}>
+          <Container className={classes.mainContainer}>
+            <main>{children}</main>
+          </Container>
+        </Scrollbar>
+      )}
+      {noContainer && (
+        <main>{children}</main>
+      )}
     </div>
   )
 }

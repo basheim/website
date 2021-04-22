@@ -13,9 +13,7 @@ const theme = createMuiTheme({
     warning: {
       main: yellow.A400
     },
-    background: {
-      default: '#cdcdcd',
-    },
+    
   },
 });
 
