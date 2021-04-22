@@ -23,6 +23,10 @@ export default function AnimationsIndex({  }: any) {
             <Link href='/sandbox/animations/pong'>
                 <Button variant="contained" color="primary">Pong</Button>
             </Link>
+            <Divider/>
+            <Link href='/sandbox/animations/orbit'>
+                <Button variant="contained" color="primary">Orbit</Button>
+            </Link>
             </Box>
         </Layout>
     )

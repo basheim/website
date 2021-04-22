@@ -70,11 +70,10 @@ const useStyles = makeStyles((theme) => ({
 
 const fast = { tension: 1500, friction: 40 }
 const slow = { mass: 20, tension: 200, friction: 50 }
-const trans = (x: string, y: string) => `translate3d(${x}px,${y}px,0) translate3d(-50%,-50%,0)`
 
 export default function GlobAnimation({ }: any) {
     const classes = useStyles();
-    const [trail, set]: any = useTrail(4, () => ({ xy: [0, 0], config: (i: number) => (i % 2 === 0 ? fast : slow) }));
+    const [trail, set]: any = useTrail(4, () => ({ x: 0, y:0, config: (i: number) => (i % 2 === 0 ? fast : slow) }));
     return (
 
         <Layout identity={{ title: 'Glob Animation' }} back={{ href: '/sandbox/animations', title: 'Animation Home' }} noContainer>
@@ -85,9 +84,9 @@ export default function GlobAnimation({ }: any) {
                             <feColorMatrix in="blur" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 30 -7" />
                         </filter>
                     </svg>
-                    <div className={classes.hooksMain} onMouseMove={(e: any) => set({ xy: [e.clientX, e.clientY] })}>
+                    <div className={classes.hooksMain} onMouseMove={(e: any) => set({ x: e.clientX, y:e.clientY })}>
                         {trail.map((props: any, index: any) => (
-                            <animated.div key={index} style={{ transform: props.xy.interpolate(trans) }} />
+                            <animated.div key={index} style={props} />
                         ))}
                     </div>
                 </div>
