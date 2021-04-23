@@ -40,26 +40,9 @@ export default function Home({ }: any) {
   const classes = useStyles();
   return (
     <Layout home identity={{ title: 'Welcome' }}>
-      <Paper className={classes.mainFeatured}>
-        <div className={classes.overlay} />
-        <Link href={`/blog`}>
-          <Grid container>
-            <Grid item md={6}>
-              <div className={classes.mainFeaturedContent}>
-                <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-                  Blog
-                            </Typography>
-                <Typography variant="h5" color="inherit" paragraph>
-                  Articles on anything and everything
-                            </Typography>
-              </div>
-            </Grid>
-          </Grid>
-        </Link>
-      </Paper >
-        <Typography component="h2" variant="h5">
-          Not a lot going on here. Still building...
-                                </Typography>
+      <Typography variant="h3">
+        Not a lot going on here. Still deciding what I want this website to be. Feel free to explore the Sandbox section or read the Blog.
+      </Typography>
     </Layout>
   )
 }

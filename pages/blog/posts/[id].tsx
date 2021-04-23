@@ -1,6 +1,7 @@
 import Layout from '../../../components/base/layout';
 import { getAllPostIds, getPostData } from '../../../lib/posts';
 import Date from '../../../components/util/date';
+import { Grid, Divider, Typography } from '@material-ui/core';
 
 export async function getStaticProps({ params }: any) {
   const postData = await getPostData(params.id)
@@ -22,13 +23,12 @@ export async function getStaticPaths() {
 export default function Post({ postData }: any) {
     return (
       <Layout identity={{title: postData.title}} back={{href: '/blog', title: 'Blog Home'}}>
-        <article>
-          <h1>{postData.title}</h1>
-          <div>
-            <Date dateString={postData.date} />
-          </div>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-        </article>
+        <Grid container direction='column'>
+          <Typography variant='h4'>{postData.title}</Typography>
+          <Date dateString={postData.date} />
+          <Divider/>
+          <Grid item dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </Grid>
       </Layout>
     )
   }

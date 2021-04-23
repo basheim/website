@@ -35,8 +35,8 @@ export default function AboutPage({ aboutData }: any) {
                         priority
                         src="../website/images/dog.jpeg"
                         className={classes.borderCircle}
-                        height={355}
-                        width={355}
+                        height={410}
+                        width={320}
                     />
                 </Grid>
             </Grid>

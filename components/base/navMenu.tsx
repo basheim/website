@@ -1,22 +1,25 @@
 import React from 'react';
-import { IconButton, SwipeableDrawer, List, ListItem, ListItemText, Grid, Divider, Tooltip } from '@material-ui/core';
+import { Typography, IconButton, SwipeableDrawer, List, ListItem, ListItemText, Grid, Divider, Tooltip } from '@material-ui/core';
 import { Menu, ArrowBack, Close } from '@material-ui/icons';
 import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   navMenuList: {
     width: 'auto',
     height: '100%'
   },
   drawer: {
     width: 'auto'
+  },
+  menuIcon: {
+    color: theme.palette.common.black
   }
-});
+}));
 
 export default function NavMenu(props: any) {
   const classes = useStyles();
-  const { sections, home, back } = props;
+  const { sections, home, back, identity } = props;
   const [isOpen, setIsOpen] = React.useState(false);
 
   const list = (navSections: any[]) => (
@@ -73,7 +76,7 @@ export default function NavMenu(props: any) {
     <React.Fragment>
 
       <IconButton edge="start" color="inherit" onClick={() => setIsOpen(isOpen => !isOpen)}>
-        <Menu />
+        <Menu className={classes.menuIcon} />
       </IconButton>
       <SwipeableDrawer
         open={isOpen}

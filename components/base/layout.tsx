@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '90%',
     border: 100,
     padding: 30,
-    overflowX: 'hidden'
+    overflowX: 'visible'
   },
   header: {
     display: 'flex',
@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center'
   },
   title: {
-    textAlign: 'left'
+    textAlign: 'left',
+    color: theme.palette.text.primary
   },
   scrollBar: {
     width: 50,
@@ -75,7 +76,7 @@ export default function Layout({ children, home, identity, back, noContainer }: 
       </Head>
       <AppBar elevation={0} position={noContainer ? "fixed" : "sticky"} className={classes.toolbarPrimary}>
         <Toolbar variant="regular" className={classes.toolbarSecondary}>
-          <NavMenu sections={sections} home={home} back={back} />
+          <NavMenu sections={sections} home={home} back={back} identity={identity}/>
           <Typography variant="h6" className={classes.title}>
             {identity.title}
           </Typography>

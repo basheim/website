@@ -1,29 +1,27 @@
 import Layout from '../../../components/base/layout';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Box, Divider } from '@material-ui/core';
-import Link from 'next/link';
+import { Grid, Typography } from '@material-ui/core';
+import CardContainer from '../../../components/util/card-container';
 
 const useStyles = makeStyles((theme) => ({
 }));
 
-export default function AnimationsIndex({  }: any) {
+export default function AnimationsIndex({ }: any) {
     const classes = useStyles();
     return (
-        <Layout identity={{ title: 'Animations' }} back={{href: '/sandbox', title: 'Sandbox Home'}}>
-             <Box display="flex" flexDirection="row">
-             <Link href='/sandbox/animations/simple-button'>
-                <Button variant="contained" color="primary" >Simple Buttons</Button>
-            </Link>
-            <Divider/>
-            <Link href='/sandbox/animations/glob'>
-                <Button variant="contained" color="primary">Glob</Button>
-            </Link>
-            <Divider/>
-            <Link href='/sandbox/animations/pong'>
-                <Button variant="contained" color="primary">Pong</Button>
-            </Link>
-            </Box>
+        <Layout identity={{ title: 'Animations' }} back={{ href: '/sandbox', title: 'Sandbox Home' }}>
+            <Grid container spacing={5}>
+                <CardContainer link='/sandbox/animations/simple-button'>
+                    <Typography variant='h4'>Simple Buttons</Typography>
+                </CardContainer>
+                <CardContainer link='/sandbox/animations/glob'>
+                    <Typography variant='h4'>Glob</Typography>
+                </CardContainer>
+                <CardContainer link='/sandbox/animations/pong'>
+                    <Typography variant='h4'>Pong</Typography>
+                </CardContainer>
+            </Grid>
         </Layout>
     )
 }
