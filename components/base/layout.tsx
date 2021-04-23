@@ -24,7 +24,10 @@ const useStyles = makeStyles((theme) => ({
   mainContainer: {
     maxWidth: '90%',
     border: 100,
-    padding: 30,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingBottom: 80,
+    paddingTop: 30,
     overflowX: 'visible'
   },
   header: {
@@ -74,7 +77,7 @@ export default function Layout({ children, home, identity, back, noContainer }: 
         />
         <meta name="og:title" content={siteTitle} />
       </Head>
-      <AppBar elevation={0} position={noContainer ? "fixed" : "sticky"} className={classes.toolbarPrimary}>
+      <AppBar elevation={0} position={noContainer ? 'fixed' : 'sticky'} className={classes.toolbarPrimary}>
         <Toolbar variant="regular" className={classes.toolbarSecondary}>
           <NavMenu sections={sections} home={home} back={back} identity={identity}/>
           <Typography variant="h6" className={classes.title}>

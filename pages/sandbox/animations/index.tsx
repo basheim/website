@@ -1,14 +1,10 @@
 import Layout from '../../../components/base/layout';
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import CardContainer from '../../../components/util/card-container';
 
-const useStyles = makeStyles((theme) => ({
-}));
 
 export default function AnimationsIndex({ }: any) {
-    const classes = useStyles();
     return (
         <Layout identity={{ title: 'Animations' }} back={{ href: '/sandbox', title: 'Sandbox Home' }}>
             <Grid container spacing={5}>
