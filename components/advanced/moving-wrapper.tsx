@@ -16,7 +16,7 @@ export default function AdvancedMove(props: any) {
     const { children } = props;
     const [{ x, y }, containerApi] = useSpring(() => ({ x: 0, y: 0 }));
 
-    const containerBind = useDrag(({ down, offset: [ox, oy] }) => containerApi.start({ x: ox, y: oy, immediate: down }), {});
+    const containerBind = useDrag(({ down, offset: [ox, oy] }) => containerApi.start({ x: ox, y: oy, immediate: down }), { useTouch: true });
 
     return (
         <animated.div {...containerBind()} style={{ x, y }} className={classes.tooltipContainer} draggable='false'>

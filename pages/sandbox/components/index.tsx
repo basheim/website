@@ -20,7 +20,7 @@ export default function ComponentsIndex({ }: any) {
                 <CardContainer link={'/sandbox/components/advanced-move-example'}>
                     <Image
                     priority
-                    src="../../../website/images/dog.jpeg"
+                    src="../../../website/images/advanced-move.gif"
                     width={200}
                     height={200}
                     />
