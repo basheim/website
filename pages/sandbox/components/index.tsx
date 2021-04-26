@@ -17,6 +17,14 @@ export default function ComponentsIndex({ }: any) {
                     height={200}
                     />
                 </CardContainer>
+                <CardContainer link={'/sandbox/components/advanced-move-example'}>
+                    <Image
+                    priority
+                    src="../../../website/images/dog.jpeg"
+                    width={200}
+                    height={200}
+                    />
+                </CardContainer>
             </Grid>
         </Layout>
     )
