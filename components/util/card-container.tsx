@@ -28,13 +28,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CardContainer(props: any) {
     const classes = useStyles();
-    const { children, link} = props;
+    const { children, link, minWidth} = props;
     const [spring, api] = useSpring(() => ({ scale: 1, config: { mass: 5, tension: 350, friction: 40}}));
 
     const bind = useHover(({ active }) => active ? api.start({ scale: 1.1 }) : api.start({scale: 1}), {});
     const AnimatedGrid = animated(Grid);
     return (
-        <AnimatedGrid style={spring} {...bind()} item xs={12} md={6} className={classes.cardContainer}>
+        <AnimatedGrid style={spring} {...bind()} item xs={minWidth? 12 : undefined} md={minWidth? 6 : undefined} className={classes.cardContainer}>
             <Link href={link}>
                 <CardActionArea component="a">
                     <Card className={classes.card}>
@@ -43,9 +43,6 @@ export default function CardContainer(props: any) {
                                 {children}
                             </CardContent>
                         </div>
-                        <Hidden xsDown>
-                            <CardMedia className={classes.cardMedia} />
-                        </Hidden>
                     </Card>
                 </CardActionArea>
             </Link>

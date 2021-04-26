@@ -6,7 +6,7 @@ import CardContainer from '../util/card-container';
 export default function FeaturedPost(props: any) {
     const { post, tag } = props;
     return (
-        <CardContainer link={`/blog/posts/${post.id}`}>
+        <CardContainer link={`/blog/posts/${post.id}`} minWidth>
             <Typography component="h2" variant="h5">
                 {tag}
             </Typography>
