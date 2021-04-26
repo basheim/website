@@ -8,12 +8,14 @@ const useStyles = makeStyles((theme) => ({
     tooltipContainer: {
         position: 'relative',
         height: '100%',
-        width: '100%'
+        width: '100%',
+        userSelect: 'none'
     },
     childrenContainer: {
         position: 'absolute',
         top:0,
-        left:0
+        left:0,
+        userSelect: 'none'
     },
     tooltip: {
         position: 'absolute',
@@ -47,6 +49,9 @@ export default function AdvancedTooltip(props: any) {
             } else {
                 tooltipClose();
             }
+        },
+        onTouchStart: () => {
+            tooltipOpen();
         },
         onDrag: ({dragging}) => {
             if (dragging) {
